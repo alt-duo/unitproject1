@@ -7,30 +7,69 @@
     <link href = "style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<p id="date"></p>
+<p id="clock"></p>
+<p id="welcome">welcome to the number guessing game! please enter your name: </p>
+<input type="text" id="nameinput" onkeydown="btnentername()">
+<button id="name2">submit</button>
+
 <h3>Level</h3>
-<input type="radio" name="level" id="easy" value="3" checked>
+<input type="radio" name="level" id="easy" value="3" checked disabled>
 <label for="easy">Easy</label>
-<input type="radio" name="level" id="medium" value="10" >
+<input type="radio" name="level" id="medium" value="10" disabled>
 <label for="medium">Medium</label>
-<input type="radio" name="level" id="hard" value="100">
+<input type="radio" name="level" id="hard" value="100" disabled>
 <label for="hard">Hard</label>
 
 <button id="playBtn">Play</button>
 
 <h3 id="msg">Select a Level</h3>
-<input type="text" id="guess" disabled>
+<input type="text" id="guess4" onkeydown="btnmakeguess()" disabled>
 <button id="guessBtn" disabled>Guess</button>
 <h3>Stats</h3>
-<p id="wins">Total wins = 0</p>
-<p id="avgScore">Average Score:</p>
-<h3>Leaderboard</h3>
+<p id="wins">Total wins: 0</p>
+<p id="avgScore">average score:</p>
+<p id="avgTime">average time:</p>
+<h3>leaderboard by # guesses:</h3>
 
-<ol>
-    <li name="leaderboard">100
-    <li name="leaderboard">100
-    <li name="leaderboard">100
-</ol>
+<table>
+    <tr>
+        <th>guesses</th>
+        <th>sec</th>
+    </tr>
+    <tr>
+        <td name="guess"><br></td>
+        <td name="time"></td>
+    </tr>
+    <tr>
+        <td name="guess"><br></td>
+        <td name="time"></td>
+    </tr>
+    <tr>
+        <td name="guess"><br></td>
+        <td name="time"></td>
+    </tr>
+</table>
+
+<h3>leaderboard by time</h3>
+<table>
+    <tr>
+        <th>sec</th>
+        <th>guesses</th>
+    </tr>
+    <tr>
+        <td name="time2"></td>
+        <td name="guess2"><br></td>
+    </tr>
+    <tr>
+        <td name="time2"></td>
+        <td name="guess2"><br></td>
+    </tr>
+    <tr>
+        <td name="time2"></td>
+        <td name="guess2"><br></td>
+    </tr>
+</table>
+
 
 <script src="script.js"></script>
 </body>
