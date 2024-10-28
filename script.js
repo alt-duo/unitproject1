@@ -27,10 +27,7 @@ function submitname(){
     firstname = capitalizeFirstLetter(firstname);
     name2.disabled = true;
     nameinput.disabled = true;
-    playBtn.disabled = false;
-    for(let i = 0; i<levelArr.length;i++){
-        levelArr[i].disabled = false;
-    }
+    reset();
     document.getElementById("welcome").innerHTML = "thanks " + firstname + "!"; 
 }
 function displayClock() {
