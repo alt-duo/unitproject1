@@ -140,7 +140,7 @@ function updateScore (){
     wins.innerHTML = "Total wins: " + scoreArr.length;
     let g = document.getElementsByName("guess");
     let time1 = document.getElementsByName("time");
-    scoreArr.sort((a,b)=>a-b);
+    scoreArr.sort((a,b)=>a[0]-b[0]);
     let sum = 0;
     let t1 = 0;
     for(let i = 0;i<scoreArr.length;i++){
