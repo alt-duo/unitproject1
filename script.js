@@ -23,13 +23,13 @@ function play() {
     guessBtn.disabled = false;
 
     answer = Math.floor(Math.random()*level)+1;
-    makeGuess.innerHTML = "Guess a #1-" + level;
+    msg.innerHTML = "Guess a #1-" + level;
     guess.placeHolder = answer;
 }
 function makeGuess() {
     let userGuess = parseInt(guess.value);
     if(isNaN(userGuess)||userGuess == ""){
-        makeGuess.innerHTML = "Invalid. Guess a #1-"+level;
+        msg.innerHTML = "Invalid. Guess a #1-"+level;
         return;
     }
     score++;
