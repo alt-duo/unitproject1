@@ -24,7 +24,7 @@ function play() {
 
     answer = Math.floor(Math.random()*level)+1;
     msg.innerHTML = "Guess a #1-" + level;
-    guess.placeHolder = answer;
+    guess.placeholder = answer;
 }
 function makeGuess() {
     let userGuess = parseInt(guess.value);
