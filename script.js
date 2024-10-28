@@ -9,7 +9,7 @@ let firstname;
 playBtn.addEventListener("click",play);
 guessBtn.addEventListener("click", makeGuess);
 name2.addEventListener("click",submitname);
-
+giveup2.addEventListener("click",giveup);
 //date arrays and misc
 const scoreArr = [];
 month1 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -30,6 +30,37 @@ function submitname(){
     reset();
     document.getElementById("welcome").innerHTML = "thanks " + firstname + "!"; 
 }
+
+function isgood(guesses){
+    if(level==3){
+        if(guesses==1){
+            return "good";
+        }else if(guesses<=2){
+            return "ok";
+        }else{
+            return "bad";
+        }
+    }else if(level==10){
+        if(guesses <=3){
+            return "good";
+        }else if(guesses<=5){
+            return "ok";
+        }else{
+            return "bad";
+        }
+    }else{
+        if(guesses == 1){
+            return "AMAZING";
+        }else if(guesses<=5){
+            return "good";
+        }else if(guesses<=10){
+            return "ok";
+        }else{
+            return "bad";
+        }
+    }
+}
+
 function displayClock() {
     const now = new Date();
     let month = now.getMonth();
@@ -54,6 +85,12 @@ function displayClock() {
   // Update the clock every second
 setInterval(displayClock, 1000); 
 
+function giveup(){
+    scoreArr.push([level,500]);
+    updateScore();
+    reset();
+}
+
 function play() {
     document.getElementById("welcome").innerHTML = ""; 
     let skib = new Date();
@@ -67,7 +104,7 @@ function play() {
     playBtn.disabled = true;
     guess4.disabled = false;
     guessBtn.disabled = false;
-
+    giveup2.disabled = false;
     answer = Math.floor(Math.random()*level)+1;
     msg.innerHTML = "Guess a #1-" + level;
     guess4.placeholder = answer;
@@ -122,7 +159,7 @@ function makeGuess() {
     }else if(userGuess>answer){
         msg.innerHTML = "too high " + firstname + ", guess a #1-" + level + ". You are " + msg2 + "("  + direction + ").";
     }else{
-        msg.innerHTML = firstname + ", you are correct! You win, it took you  " + score + " tries.";
+        msg.innerHTML = firstname + ", you are correct! You win, it took you  " + score + " tries. " + "<br>according to my totally objective perspective, you did " + isgood(score) + ".";
         const skib2 = new Date();
         aftertime = skib2.getTime();
         console.log(aftertime);
@@ -147,8 +184,11 @@ function updateScore (){
             g[i].innerHTML = scoreArr[i][0];
             time1[i].innerHTML = scoreArr[i][1];
         }
-        sum += scoreArr[i][0];
-        t1 += scoreArr[i][1];
+        console.log(scoreArr[i][0]);
+        console.log(scoreArr[i][1]);
+                
+        sum += Number(scoreArr[i][0]);
+        t1 += Number(scoreArr[i][1]);
     }
     let avg = sum/scoreArr.length;
     let avg2 = t1/scoreArr.length;
@@ -176,6 +216,7 @@ function reset() {
     guess4.disabled = true;
     guessBtn.disabled = true;
     playBtn.disabled = false;
+    giveup2.disabled = true;
     for(let i = 0; i<levelArr.length;i++){
         levelArr[i].disabled = false;
     }
