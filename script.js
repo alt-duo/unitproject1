@@ -107,7 +107,7 @@ function play() {
     giveup2.disabled = false;
     answer = Math.floor(Math.random()*level)+1;
     msg.innerHTML = "Guess a #1-" + level;
-    guess4.placeholder = answer;
+    // guess4.placeholder = answer;
     beforetime = skib.getTime();
     console.log(beforetime);
 }
