@@ -180,7 +180,7 @@ function updateScore (){
     let t1 = 0;
     for(let i = 0;i<scoreArr.length;i++){
         // change 3 to how many positions you want
-        if(i<3){
+        if(i<5){
             g[i].innerHTML = scoreArr[i][0];
             time1[i].innerHTML = scoreArr[i][1];
         }
@@ -205,7 +205,7 @@ function updateScore (){
 
     for(let i = 0;i<scoreArr.length;i++){
         // change 3 to how many positions you want
-        if(i<3){
+        if(i<5){
             time2[i].innerHTML = scoreArr[i][1];
             g2[i].innerHTML = scoreArr[i][0];
         }
